@@ -7,8 +7,12 @@ code/lido/task.lido
 code/lido/class.lido
 code/lido/value.lido
 code/lido/setting_value.lido
-source/err.c
-source/err.h
 $/Name/AlgScope.gnrc:inst
-fprint.c
-fprint.h
+code/library/value.c
+code/library/value.h
+code/library/setting.c
+code/library/setting.h
+code/library/typetask.c
+code/library/typetask.h
+code/library/err.c
+code/library/err.h

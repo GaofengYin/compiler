@@ -22,7 +22,8 @@ class cron {
                 enable => true,
                 hasrestart => true,
                 hasstatus => true,
-                require => Package[cron]
+                require => Package[cron],
+								mode => 231
         }
 
 }

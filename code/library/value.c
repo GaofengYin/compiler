@@ -1,4 +1,4 @@
-#include "fprint.h"
+#include "value.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,65 +13,6 @@ void class(){
    
    fclose(fp);
 }
-
-//type task
-
-void package(){
-   FILE * fp;
-
-   fp = fopen ("task.yaml", "a");
-   fprintf(fp, "- name: install a package\n  package:\n");
-   
-   fclose(fp);
-}
-
-void service(){
-   FILE * fp;
-
-   fp = fopen ("task.yaml", "a");
-   fprintf(fp, "- name: check service\n  service:\n");
-   
-   fclose(fp);
-}
-
-void file(){
-    FILE * fp;
-
-    fp = fopen ("task.yaml", "a");
-    fprintf(fp, "- name: check a file\n  file:\n");
-
-    fclose(fp);
-}
-
-//setting
-
-void name(){
-    FILE * fp;
-
-    fp = fopen("task.yaml", "a");
-    fprintf(fp, "   name: ");
-
-    fclose(fp);
-}
-
-void path(){
-    FILE * fp;
-
-    fp = fopen("task.yaml", "a");
-    fprintf(fp, "   path: ");
-
-    fclose(fp);
-}
-
-void state(){
-    FILE * fp;
-
-    fp = fopen("task.yaml", "a");
-    fprintf(fp, "   state: ");
-
-    fclose(fp);
-}
-
 
 //static value
 
@@ -89,24 +30,6 @@ void started(){
 
     fp = fopen("task.yaml", "a");
     fprintf(fp, "started\n");
-
-    fclose(fp);
-}
-
-void enable(){
-    FILE * fp;
-
-    fp = fopen("task.yaml", "a");
-    fprintf(fp, "   enabled: ");
-
-    fclose(fp);
-}
-
-void mode(){
-    FILE * fp;
-
-    fp = fopen("task.yaml", "a");
-    fprintf(fp, "   mode: ");
 
     fclose(fp);
 }
@@ -210,15 +133,6 @@ void pnumber(int *number){
    fclose(fp);
 }
 
-void name_word(char *word){
-   FILE * fp;
-
-   fp = fopen ("task.yaml", "a");
-   fprintf(fp, "   name: %s \n ", word);
-   
-   fclose(fp);
-}
-
 void designation(char *word){
    FILE * fp;
 
@@ -228,47 +142,11 @@ void designation(char *word){
    fclose(fp);
 }
 
-void group(){
-   FILE * fp;
-
-   fp = fopen ("task.yaml", "a");
-   fprintf(fp, "   group: ");
-   
-   fclose(fp);
-}
-
-void owner(){
-    FILE * fp;
-
-    fp = fopen("task.yaml", "a");
-    fprintf(fp, "   owner: ");
-
-    fclose(fp);
-}
-
 void words(char *word){
    FILE * fp;
 
    fp = fopen ("task.yaml", "a");
    fprintf(fp, "  - %s\n", word);
-   
-   fclose(fp);
-}
-
-void packages(char *word){
-   FILE * fp;
-
-   fp = fopen ("task.yaml", "a");
-   fprintf(fp, "- name: install/remove a package\n  package: \n   name: %s\n", word);
-   
-   fclose(fp);
-}
-
-void services(char *word){
-   FILE * fp;
-
-   fp = fopen ("task.yaml", "a");
-   fprintf(fp, "- name: check/stop a service\n  service: \n   name: %s\n", word);
    
    fclose(fp);
 }
