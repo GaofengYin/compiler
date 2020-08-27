@@ -1,0 +1,36 @@
+statement: 		  task /
+				  include /
+				  property / 
+				  condition /
+				  class .
+
+include: 		  'include' action .
+
+action: 		  word_identifier .
+
+condition: 		  if /
+		   		  switch_case .
+
+if:  	   		  'if' expression '{' tasks '}' .
+
+expression: 	  variable comparator plica value plica /
+				  '!' 'defined' '(' metaparam ')' .
+
+comparator: 	  '!' '=' / 
+				  '!' /
+				  '<' /
+				  '>' /
+				  '=' /
+				  '==' .
+
+switch_case: 	  'case' variable '{' cases '}' .
+
+cases:  		  case cases /
+				  case .
+
+case: 			  os_distribution ':' '{' variable '=' '"' operating_system '"' '}' /
+	  			  'default' ':' '{' '"' 'not found' '"' '}' .
+
+os_distribution:  word_identifier .
+
+operating_system: word_identifier .

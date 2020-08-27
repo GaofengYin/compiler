@@ -1,0 +1,71 @@
+tasks:           task tasks /
+	             task .
+
+task:   	     task_identifier '{' attributes '}' .
+
+task_identifier: 'Package' '[' name ']' /
+			     'Service' '[' name ']'/
+			     'File' '[' name ']' /
+			     'service' /
+			     'package' /
+			     'file' .
+
+name: 			 plica name plica /
+				 '"' name '"' /
+				 word_identifier /
+				 file_identifier /
+				 variable /
+				 directory_identifier /
+				 '[' words ']' /
+				 extvar /
+				 directory_type2_identifier .
+
+words: 			 '"' word '"' ',' words /
+ 				 '"' word '"' .
+
+attributes:      name ':' pairs /
+		         pairs .
+
+pairs:           pair ',' pairs /
+	             pair .
+
+pair:      	     setting '=>' value /
+                 pp_default .
+
+pp_default:      'name' '=>' os /
+				 'name' '=>' '"' word '"' /
+                 'path' '=>' os /
+                 'owner' '=>' definition /
+                 'group' '=>' definition /
+				 special_case . 
+
+definition:      '"' definition '"' /
+                 designation .
+
+designation:     word_identifier .
+
+boolean: 	     'true' /
+		     	 'false' .
+
+os: 		     variable '?' '{' 'default' '=>' value '}' .
+
+setting: 		 'default' /
+		 		 'ensure' /
+		 		 'mode' /
+		 		 'require' /
+				 'source' /
+				 'enable' /
+				 'subscribe' /
+		 		 'content' /
+				 'options' /
+				 'notify' /
+				 'replace' /
+				 'uid' /
+				 'gid' /
+				 'home' /
+				 'shell' .
+
+special_case:	 'hasstatus' '=>' 'true' /
+				 'hasstatus' '=>' 'false' /
+				 'hasrestart' '=>' 'true' /
+				 'hasrestart' '=>' 'false' .

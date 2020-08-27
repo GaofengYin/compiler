@@ -1,0 +1,8 @@
+word_identifier:            $[a-zA-Z_\-\+]+((::)?[a-zA-Z0-9$-]+)* [mkstr]
+file_identifier:            $[a-z\/\*\-_]+\.[a-z\.0-9]+ [mkstr]
+source_identifier:          $"puppet://"[a-z\/$\.\-:0-9_]+ [mkstr]
+directory_identifier:       $(\/[\$a-zA-Z\._\-:0-9]+)+ [mkstr]
+directory_type2_identifier: $[a-z]+(\/[a-z\-]+)+ [mkstr]
+number_identifier:          $[0-9]+ [mkint]
+options:                    $[a-z\=]+ [mkstr]
+plica:                      $'

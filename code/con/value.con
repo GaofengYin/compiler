@@ -1,0 +1,58 @@
+value: 		     '"' value '"' /
+                 plica value plica /
+ 			     word / 
+ 			     number /
+  			     metaparam /
+   			     file /
+    		     source_identifier /
+     		     sources /
+      		     dir /
+                 os /
+       		     boolean /
+        	     variable /
+                 reference /
+                 options /
+                 template /
+                 set_or_get /
+                 extvar /
+                 directory_type2_identifier /
+                 default_value .
+
+extvar:  	    '$' '{' name '}' /
+		 	    '$' '{' name '}' '/' '$' '{' name '}' .
+
+file: 		     file_identifier .
+
+word: 		     word_identifier .
+
+number: 	     number_identifier .
+
+dir: 		     directory_identifier .
+
+sources: 	     '[' '"' source_identifier '"' ',' '"' source_identifier '"' ']' .
+
+metaparam:  	 meta_identifier '[' name ']' .
+
+meta_identifier: 'Package' /
+                 'File' /
+                 'Host' / 
+                 'Service' / 
+                 'Class' .
+
+template:        'template' '(' name ')' .
+
+reference:       '[' metaparams ']' .
+
+metaparams:      metaparam ',' metaparams /
+                 metaparam .
+
+set_or_get:      'set' variable+ /
+                 'get' variable comparator variable .
+
+default_value:   'present' /
+                 'running' /
+                 'installed'/
+                 'stopped' /
+                 'latest' /
+                 'absent' /
+                 'directory' .

@@ -1,0 +1,14 @@
+---
+- name: install a package
+  package:
+   name: vixie-cron
+   state: present
+- name: install a package
+  package:
+   name: crontabs
+   state: present
+- name: check service
+  service:
+   name: crond
+   state: started
+   enabled: yes

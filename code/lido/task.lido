@@ -1,0 +1,89 @@
+RULE: task_identifier ::= 'service' COMPUTE
+  service();
+END;
+
+RULE: task_identifier ::= 'package' COMPUTE
+  package();
+END;
+
+RULE: task_identifier ::= 'file' COMPUTE
+  file();
+END;
+
+RULE: task_identifier ::= 'Package' '[' name ']' COMPUTE
+  packages(StringTable(name.value));
+END;
+
+RULE: task_identifier ::= 'Service' '[' name ']' COMPUTE
+  services(StringTable(name.value));
+END;
+
+ATTR value: int;
+
+RULE: name ::= file_identifier COMPUTE
+  name.value = file_identifier;
+END;
+
+RULE: name ::= plica name plica COMPUTE
+  name[1].value = 0;
+END;
+
+RULE: name ::= word_identifier COMPUTE
+  name.value = word_identifier;
+END;
+
+RULE: name ::= variable COMPUTE 
+  name[1].value = 0;
+END;
+
+RULE: name ::= directory_identifier COMPUTE
+  name.value = directory_identifier;
+END;
+
+RULE: name ::= '[' words ']' COMPUTE
+  name[1].value = 0;
+END;
+
+RULE: name ::= extvar COMPUTE 
+  name[1].value = 0;
+END;
+
+RULE: name ::= directory_type2_identifier COMPUTE
+  name.value = directory_type2_identifier;
+END;
+
+ATTR isword: int;
+
+RULE: word ::= word_identifier COMPUTE
+  word.isword = word_identifier;
+END;
+
+RULE: words ::= '"' word '"' ',' words COMPUTE
+  words(StringTable(word.isword));
+END;
+
+RULE: words ::= '"' word '"' COMPUTE
+  words(StringTable(word.isword));
+END;
+
+RULE: pp_default ::= 'owner' '=>' definition COMPUTE
+  owner();
+END;
+
+RULE: pp_default ::= 'group' '=>' definition COMPUTE
+  group();
+END;
+
+RULE: definition ::= designation COMPUTE
+  designation(StringTable(designation.desig));
+END;
+
+ATTR desig: int;
+
+RULE: designation ::= word_identifier COMPUTE
+  designation.desig = word_identifier;
+END;
+
+RULE: pp_default ::= 'name' '=>' '"' word '"' COMPUTE
+  name_word(StringTable(word.isword));
+END;

@@ -1,0 +1,55 @@
+RULE: boolean ::= 'true' COMPUTE
+  yes();
+END;
+
+RULE: boolean ::= 'false' COMPUTE
+  no();
+END;
+
+RULE: default_value ::= 'stopped' COMPUTE
+  stopped();
+END;
+
+RULE: default_value ::= 'present' COMPUTE
+  present();
+END;
+
+RULE: default_value ::= 'latest' COMPUTE
+  latest();
+END;
+
+RULE: default_value ::= 'installed' COMPUTE
+  install();
+END;
+
+RULE: default_value ::= 'running' COMPUTE
+  started();
+END;
+
+RULE: default_value ::= 'absent' COMPUTE
+  absent();
+END;
+
+RULE: default_value ::= 'directory' COMPUTE
+  directory();
+END;
+
+RULE: setting ::= 'ensure' COMPUTE
+  state();
+END;
+
+RULE: setting ::= 'mode' COMPUTE
+  mode();
+END;
+
+RULE: setting ::= 'enable' COMPUTE
+  enable();
+END;
+
+RULE: pp_default ::= 'path' '=>' os COMPUTE
+  path();
+END;
+
+RULE: pp_default ::= 'name' '=>' os COMPUTE
+  name();
+END;

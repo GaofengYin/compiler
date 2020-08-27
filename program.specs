@@ -1,0 +1,14 @@
+code/con/class.con
+code/con/statements.con
+code/con/task.con
+code/con/value.con
+code/gla/regular_expression.gla
+code/lido/task.lido
+code/lido/class.lido
+code/lido/value.lido
+code/lido/setting_value.lido
+source/err.c
+source/err.h
+$/Name/AlgScope.gnrc:inst
+fprint.c
+fprint.h

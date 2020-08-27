@@ -1,0 +1,40 @@
+ATTR isnumber: int;
+
+RULE: number ::= number_identifier COMPUTE
+  number.isnumber = number_identifier;
+END;
+
+RULE: value ::= number COMPUTE
+  pnumber(number.isnumber);
+END;
+
+ATTR directory: int;
+
+RULE: dir ::= directory_identifier COMPUTE
+  dir.directory = directory_identifier;
+END;
+
+RULE: value ::= dir COMPUTE
+  pdirectory(StringTable(dir.directory));
+END;
+
+ATTR isfile: int;
+
+RULE: file ::= file_identifier COMPUTE
+  file.isfile = file_identifier;
+END;
+
+RULE: value ::= file COMPUTE
+  pfile(StringTable(file.isfile));
+END;
+
+ATTR word: int;
+
+RULE: word ::= word_identifier COMPUTE
+  word.word = word_identifier;
+END;
+
+RULE: value ::= word COMPUTE
+  pword(StringTable(word.word));
+END;
+

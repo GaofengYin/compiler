@@ -1,0 +1,28 @@
+Program: 	 class+ .
+
+class: 		 'class' class_name '{' statements '}' / 
+			 'class' class_name 'inherits' class_name '{' statements '}' /
+			 'import' name /
+			 'define' class_name '(' parameter ')' '{' statements '}' / 
+			 'class' class_name '(' parameter ')' '{' statements '}' . 
+
+class_name:  word_identifier .
+
+parameter:	 variables /
+	   	   	 properties .
+
+variables:	 variable ',' variables /
+		   	 variable.
+
+variable: 	'$' word_identifier .
+
+statements:	 statement statements /
+			 statement .
+
+properties:	 property ',' properties /
+	  		 property .
+
+property: 	 variable '=' word '(' value ')' /
+			 variable '=' name /
+			 variable '=' os /
+			 variable '=' number .

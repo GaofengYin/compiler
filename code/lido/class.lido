@@ -1,0 +1,27 @@
+/* class .lido */
+
+RULE: class ::= 'class' class_name '{' statements '}' COMPUTE
+  class();
+END;
+
+RULE: class ::= 'class' class_name '(' parameter ')' '{' statements '}' COMPUTE
+  class();
+END;
+
+RULE: class ::= 'import' name COMPUTE
+END;
+
+RULE: class ::= 'define' class_name '(' parameter ')' '{' statements '}' COMPUTE
+END;
+
+/* statement .lido */
+
+ATTR type: int;
+
+RULE: action ::= word_identifier COMPUTE
+  action.type = word_identifier;
+END;
+
+RULE: include ::= 'include' action COMPUTE
+  printf("- name: Include a play\n  include: %s\n", StringTable(action.type));
+END;
