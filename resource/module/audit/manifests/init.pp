@@ -2,19 +2,19 @@ class audit {
 
 	service {
 		"auditd":
-		enable    => "true",
-		ensure    => "running",
                 name => $operatingsystem ? {
                         default => "auditd"
-                        }
+                        },
+		enable    => "true",
+		ensure    => "running"
 	}
 
         package {
                 "audit":
-                ensure => present,
                 name => $operatingsystem ? {
                         default => "audit"
-                        }
+                        },
+                ensure => present
         }
 	
 }

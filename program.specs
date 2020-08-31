@@ -7,7 +7,6 @@ code/lido/task.lido
 code/lido/class.lido
 code/lido/value.lido
 code/lido/setting_value.lido
-$/Name/AlgScope.gnrc:inst
 code/library/value.c
 code/library/value.h
 code/library/setting.c
@@ -16,3 +15,4 @@ code/library/typetask.c
 code/library/typetask.h
 code/library/err.c
 code/library/err.h
+$/Name/AlgScope.gnrc:inst

@@ -1,31 +1,17 @@
 ---
 - name: install a package
   package:
-   name: cups
+   name: vsftpd
    state: present
 - name: check service
   service:
-   name: cups
+   name: vsftpd
    state: started
    enabled: yes
-- name: check a file
-  file:
-   mode: 640
-   owner: root
-   group: lp
-   state: present
-   path: /etc/cups/cupsd.conf
-- name: check a file
-  file:
-   mode: 600
-   owner: root
-   group: lp
-   state: present
-   path: /etc/cups/printers.conf
 - name: check a file
   file:
    mode: 644
    owner: root
    group: root
    state: present
-   path: /etc/cups/lpoptions
+   path: /etc/vsftpd/vsftpd.conf
