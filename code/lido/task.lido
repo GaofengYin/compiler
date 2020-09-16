@@ -1,3 +1,6 @@
+RULE: task ::= task_identifier '{' attributes '}' COMPUTE
+END;
+
 RULE: task_identifier ::= 'service' COMPUTE
   service();
 END;

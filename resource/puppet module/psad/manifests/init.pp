@@ -7,12 +7,14 @@ class psad {
                 ensure => present
         	}
 
-        package { mailx:
+        package { "mailx":
+                name => "mailx",
                 ensure => present
         }
 
 	service {
                 "psad":
+                        name => "psad",
                         enable    => "true",
                         require   => [
                                 Package["psad"],
